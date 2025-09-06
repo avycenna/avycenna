@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lora } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
+import { GA4Provider } from "./providers/ga4";
 // import Navbar from "@/components/navbar";
 
 const lora = Lora({
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body
         className={`${lora.className} antialiased`}
       >
+        <GA4Provider />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
