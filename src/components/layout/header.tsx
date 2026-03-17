@@ -41,12 +41,12 @@ export function Header() {
               className="hidden h-7.75 rounded-lg sm:flex"
               variant="default"
             >
-              <Link href="/create">
+              <Link href="/new">
                 New Project
               </Link>
             </Button>
             <Button asChild size="sm" className="h-7.75 rounded-lg sm:hidden">
-              <Link href="/create">
+              <Link href="/new">
                 New
               </Link>
             </Button>

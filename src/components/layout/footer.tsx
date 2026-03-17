@@ -11,54 +11,29 @@ import { cn } from "@/lib/utils"
 
 export function Footer() {
   return (
-    <footer className="w-full md:max-w-[90vw] p-8 text-foreground flex flex-col items-center gap-8 mx-auto">
+    <footer className="w-full md:max-w-[90vw] px-8 pb-8 text-foreground flex flex-col items-center gap-8 mx-auto">
       {/* <LogoCloud /> */}
       <Separator />
 
       {/* Info + Links Section */}
-      <div className="w-full flex flex-col md:flex-row justify-between gap-8">
+      <div className="w-full flex flex-col lg:flex-row justify-between gap-8">
         {/* Name & Description */}
-        <div className="flex-1 text-center md:text-start">
+        <div className="flex-1 text-center lg:text-start">
 
-          <div className="flex justify-center md:justify-start gap-4">
+          <div className="flex justify-center lg:justify-start gap-4">
             <Logo />
             <h3 className="text-2xl font-bold">Avycenna</h3>
           </div>
-          <div className="flex justify-center md:justify-start">
+          <div className="flex justify-center lg:justify-start">
             <p className="max-w-96 text-sm text-balance text-muted-foreground my-2">
               Helping businesses scale with cutting-edge solutions and a focus on growth and innovation.
             </p>
-          </div>
-          <div className="flex justify-center md:justify-start gap-2">
-            {siteConfig.links.linkedin && (
-              <Link href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="group/toggle extend-touch-target size-8"
-                >
-                  <Linkedin />
-                </Button>
-              </Link>
-            )}
-            {siteConfig.links.github && (
-              <Link href={siteConfig.links.github} target="_blank" rel="noopener noreferrer">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="group/toggle extend-touch-target size-8"
-                >
-                  <Github />
-                </Button>
-              </Link>
-            )}
-            <ThemeToggle />
           </div>
           <SystemStatus status="operational" />
         </div>
 
         {/* Link Groups */}
-        <div className="flex-2 grid grid-cols-2 sm:grid-cols-4 gap-6 text-sm text-center md:text-start">
+        <div className="flex-2 grid grid-cols-2 sm:grid-cols-4 gap-6 text-sm text-center lg:text-start">
 
           {siteConfig.footer.map((group) => (
             <div key={group.category}>
@@ -66,7 +41,13 @@ export function Footer() {
               <ul className="mt-2 space-y-1">
                 {group.links.map((link) => (
                   <li key={link.label}>
-                    <Link href={link.href} className="hover:underline">{link.label}</Link>
+                    <Link
+                      href={link.href}
+                      className="hover:underline pointer-events-none text-muted-foreground"
+                    >
+                      {link.label}
+                      <Badge variant="secondary" className="text-xs font-mono ml-1">wip</Badge>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -80,10 +61,10 @@ export function Footer() {
 
       <div className="flex flex-col md:flex-row items-center justify-between w-full text-xs gap-2">
         <div>
-          <p>© {new Date().getFullYear()} Avycenna. All rights reserved.</p>
+          <p className="text-muted-foreground">© {new Date().getFullYear()} Avycenna. All rights reserved.</p>
         </div>
         <div className="flex gap-4">
-          {/* {siteConfig.links.linkedin && (
+          {siteConfig.links.linkedin && (
             <Link href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
@@ -105,10 +86,10 @@ export function Footer() {
               </Button>
             </Link>
           )}
-          <ThemeToggle /> */}
-          {siteConfig.legal.map((link) => (
+          <ThemeToggle />
+          {/* {siteConfig.legal.map((link) => (
             <Link className="hover:underline" href={link.href} key={link.label}>{link.label}</Link>
-          ))}
+          ))} */}
         </div>
       </div>
     </footer>

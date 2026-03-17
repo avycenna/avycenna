@@ -11,6 +11,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { Badge } from "../ui/badge"
 
 export function MobileNav({
   // tree,
@@ -72,8 +73,9 @@ export function MobileNav({
                 Home
               </MobileLink>
               {items.map((item, index) => (
-                <MobileLink key={index} href={item.href} onOpenChange={setOpen}>
+                <MobileLink className="pointer-events-none text-muted-foreground" key={index} href={item.href} onOpenChange={setOpen}>
                   {item.label}
+                  <Badge variant="secondary" className="text-xs font-mono ml-1">wip</Badge>
                 </MobileLink>
               ))}
             </div>

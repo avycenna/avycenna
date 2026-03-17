@@ -1,3 +1,5 @@
+/* https://magicui.design/docs/components/light-rays */
+
 "use client"
 
 import { useEffect, useState, type CSSProperties } from "react"

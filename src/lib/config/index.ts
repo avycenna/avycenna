@@ -1,0 +1,2 @@
+export { siteConfig } from "./site";
+

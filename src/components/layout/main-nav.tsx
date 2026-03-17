@@ -30,7 +30,7 @@ export function MainNav({
             href={item.href}
             data-active={pathname === item.href}
             // data-new={PAGES_NEW.includes(item.href)}
-            className="relative items-center"
+            className="relative items-center pointer-events-none text-muted-foreground"
           >
             {item.label}
           </Link>
