@@ -10,6 +10,7 @@ import { Field, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field
 import { Input } from "@/components/ui/input"
 import { sendNotification, sendReceipt } from "@/app/actions/message"
 import { Textarea } from "@/components/ui/textarea"
+import posthog from "posthog-js"
 
 const formSchema = z.object({
   name: z
@@ -38,13 +39,23 @@ export function ContactForm() {
       onSubmit: formSchema,
     },
     onSubmit: async ({ value }: { value: FormData }) => {
-      const info = await sendNotification(value);
-      // if (info.accepted.length > 0) {
-      //   await sendReceipt(value);
-      // }
-      form.reset();
-      // show success message
-    },
+      try {
+        const info = await sendNotification(value);
+        if (info?.accepted?.length > 0) {
+          posthog.capture('form_submitted', { form: 'contact', has_message: value.message.length > 0 })
+          posthog.identify(value.email)
+        } else {
+          posthog.capture('form_submission_failed', { form: 'contact' })
+        }
+        form.reset();
+      } catch (error) {
+        posthog.capture('form_submission_error', {
+          form: 'contact',
+          error: (error as Error).message,
+          message: value.message,
+        })
+      }
+    }
   })
 
   return (
