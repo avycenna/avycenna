@@ -60,12 +60,12 @@ export function ContactForm() {
 
   return (
     <Card className="w-full sm:max-w-md">
-      <CardHeader>
+      {/* <CardHeader>
         <CardTitle>Contact Us</CardTitle>
         <CardDescription>
           Have a question or want to work together? Send us a message.
         </CardDescription>
-      </CardHeader>
+      </CardHeader> */}
       <CardContent>
         <form
           id="contact-form"
@@ -145,7 +145,7 @@ export function ContactForm() {
                       onChange={(e) => field.handleChange(e.target.value)}
                       placeholder="Tell us how we can help..."
                       rows={5}
-                      className="min-h-24"
+                      className="min-h-24 resize-none"
                       aria-invalid={isInvalid}
                     />
                     {isInvalid && (

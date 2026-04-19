@@ -68,7 +68,8 @@ export function Marquee({
       ref={marqueeRef}
       data-slot="marquee"
       className={cn(
-        'group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] gap-(--gap)',
+        // 'group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] gap-(--gap)',
+        'group flex overflow-hidden p-2 [--gap:1rem] gap-(--gap)',
         {
           'flex-row': !vertical,
           'flex-col': vertical,
@@ -89,7 +90,7 @@ export function Marquee({
                 className={cn(
                   !vertical ? 'flex-row gap-(--gap)' : 'flex-col gap-(--gap)',
                   'flex shrink-0 justify-around',
-                  !vertical && 'animate-marquee flex-row',
+                  !vertical && (reverse ? 'animate-marquee-reverse' : 'animate-marquee') + ' flex-row',
                   vertical && 'animate-marquee-vertical flex-col',
                   pauseOnHover && 'group-hover:paused',
                   reverse && 'direction-[reverse]',
