@@ -1,17 +1,17 @@
 import Link from "next/link"
 import { siteConfig } from "@/lib/config/site"
-import { Github, Linkedin } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Separator } from "@/components/ui/separator"
 import { Logo } from "@/components/icons/logo"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
+import { Icons } from "../icons/icons"
 // import LogoCloud from "./logo-cloud"
 
 export function Footer() {
   return (
-    <footer className="w-full md:max-w-[90vw] px-8 pb-8 text-foreground flex flex-col items-center gap-8 mx-auto">
+    <footer className="w-full md:max-w-[90vw] lg:max-w-7xl px-8 pb-8 text-foreground flex flex-col items-center gap-8 mx-auto">
       {/* <LogoCloud /> */}
       <Separator />
 
@@ -46,7 +46,7 @@ export function Footer() {
                       className="hover:underline pointer-events-none text-muted-foreground"
                     >
                       {link.label}
-                      <Badge variant="secondary" className="text-xs font-mono ml-1">wip</Badge>
+                      {" "}<Badge variant="secondary" className="text-xs font-mono select-none ml-1">wip</Badge>
                     </Link>
                   </li>
                 ))}
@@ -63,7 +63,7 @@ export function Footer() {
         <div>
           <p className="text-muted-foreground">© {new Date().getFullYear()} Avycenna. All rights reserved.</p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-2">
           {siteConfig.links.linkedin && (
             <Link href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer">
               <Button
@@ -71,7 +71,7 @@ export function Footer() {
                 size="icon"
                 className="group/toggle extend-touch-target size-8"
               >
-                <Linkedin />
+                <Icons.linkedin />
               </Button>
             </Link>
           )}
@@ -82,7 +82,7 @@ export function Footer() {
                 size="icon"
                 className="group/toggle extend-touch-target size-8"
               >
-                <Github />
+                <Icons.github />
               </Button>
             </Link>
           )}

@@ -74,8 +74,8 @@ export function MobileNav({
               </MobileLink>
               {items.map((item, index) => (
                 <MobileLink className="pointer-events-none text-muted-foreground" key={index} href={item.href} onOpenChange={setOpen}>
-                  {item.label}
-                  <Badge variant="secondary" className="text-xs font-mono ml-1">wip</Badge>
+                  {item.label} 
+                  {" "}<Badge variant="secondary" className="text-xs font-mono select-none ml-1">wip</Badge>
                 </MobileLink>
               ))}
             </div>

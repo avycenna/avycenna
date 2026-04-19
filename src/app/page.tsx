@@ -9,6 +9,7 @@ import { LightRays } from "@/components/ui/light-rays";
 import { Anchor, ArrowRight, Database } from "lucide-react";
 import Link from "next/link";
 import LogoMarquee from "@/components/icons/logo-marquee";
+import { logos } from "@/lib/logos";
 
 export default function Home() {
   return (
@@ -47,11 +48,15 @@ export default function Home() {
             Avycenna makes digital transformation effortless.
           </p>
           <div className="flex justify-center lg:justify-start gap-4">
-            <Button variant="default">
-              Discuss Your Project
+            <Button asChild variant="default">
+              <Link href="/new">
+                Discuss Your Project
+              </Link>
             </Button>
-            <Button variant="outline">
-              Learn More
+            <Button asChild variant="outline">
+              <Link href="/new">
+                Learn More
+              </Link>
             </Button>
           </div>
         </div>
@@ -62,8 +67,7 @@ export default function Home() {
         title="Our Team&apos;s Track Record"
         caption="Join organizations already growing with us"
       />
-      {/* <LogoCloud /> */}
-      <LogoMarquee />
+      <LogoMarquee logos={logos} />
 
 
       <Heading

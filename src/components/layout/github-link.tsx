@@ -7,7 +7,7 @@ export function GitHubLink() {
   return (
     <Button asChild size="sm" variant="ghost" className="h-8 shadow-none">
       <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
-        <Icons.gitHub />
+        <Icons.github />
       </Link>
     </Button>
   )
