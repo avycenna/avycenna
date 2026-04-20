@@ -13,6 +13,10 @@ export const logos: Logo[] = [
     url: "/logos/emsi.png",
   },
   {
+    name: "1337",
+    url: "/logos/1337.svg",
+  },
+  {
     name: "DriveMe",
     url: "/logos/driveme.png",
   },
